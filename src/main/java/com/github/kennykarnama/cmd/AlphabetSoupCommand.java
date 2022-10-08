@@ -2,6 +2,7 @@ package com.github.kennykarnama.cmd;
 
 import com.github.kennykarnama.commons.sort.alphabetsoup.CountingSortAlphabetSoup;
 import com.github.kennykarnama.commons.sort.alphabetsoup.DefaultAlphabetSoup;
+import com.github.kennykarnama.commons.sort.alphabetsoup.AlphabetSoup;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -20,17 +21,18 @@ public class AlphabetSoupCommand implements Runnable {
         String result = "";
         switch (this.mode) {
             case "COUNTING_SORT":
-                CountingSortAlphabetSoup sorter = new CountingSortAlphabetSoup();
+                AlphabetSoup sorter;
                 try {
-                    result = sorter.Process(this.inputStr);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    sorter = new CountingSortAlphabetSoup(this.inputStr);
+                    result = sorter.Process();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
                 break;
             default:
-                DefaultAlphabetSoup defaultSorter = new DefaultAlphabetSoup();
                 try {
-                    result = defaultSorter.Process(this.inputStr);
+                    sorter = new DefaultAlphabetSoup(this.inputStr);
+                    result = sorter.Process();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -9,13 +9,20 @@ package com.github.kennykarnama.commons.sort.alphabetsoup;
 * This abstract class also has validation method to validate if the string contains only alphabet
 * Different implementation is required to implement Process function
  */
-abstract class AlphabetSoup {
+public abstract class AlphabetSoup {
+
+    protected String inputStr;
+
+    public AlphabetSoup(String inputString) throws Exception {
+        this.Validate(inputString);
+        this.inputStr = inputString;
+    }
     /**
      * Validate input string
      * @param s input string
      * @throws Exception validation failed
      */
-    protected void Validate(String s) throws Exception {
+    private void Validate(String s) throws Exception {
         boolean match = s.matches("[a-zA-Z]+");
         if (!match) {
             throw new Exception("only alphabets are permitted");
@@ -29,5 +36,5 @@ abstract class AlphabetSoup {
      * @return sorted String
      * @throws Exception Validation failed
      */
-    abstract public String Process(String s) throws Exception;
+    abstract public String Process();
 }

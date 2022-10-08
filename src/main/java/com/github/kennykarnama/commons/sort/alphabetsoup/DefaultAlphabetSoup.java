@@ -7,14 +7,15 @@ package com.github.kennykarnama.commons.sort.alphabetsoup;
  */
 public class DefaultAlphabetSoup extends AlphabetSoup {
 
+    public DefaultAlphabetSoup(String inputString) throws Exception {
+        super(inputString);
+    }
+
     @Override
-    public String Process(String s) throws Exception {
-        // validate
-        // should be done in constructor, but let it be like this
-        this.Validate(s);
+    public String Process() {
         // Allocate char arrays so we can
         // modify in place since string is immutable 
-        char arr[] = s.toCharArray();
+        char arr[] = this.inputStr.toCharArray();
         // store length of the string array
         // to avoid re-computation during loops
         final int len = arr.length;

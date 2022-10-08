@@ -2,6 +2,7 @@ package com.github.kennykarnama;
 
 import com.github.kennykarnama.cmd.AlphabetSoupCommand;
 
+import picocli.CommandLine;
 import picocli.CommandLine.Command;
 
 @Command(
@@ -13,13 +14,14 @@ import picocli.CommandLine.Command;
 )
 public class App implements Runnable
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    public static void main(String[] args) {
+
+        final CommandLine cmd = new CommandLine(new App());
+        cmd.parseWithHandler(new CommandLine.RunLast(), args);
     }
 
     @Override
     public void run() {
-        System.out.println( "Hello World!" );
+        CommandLine.usage(this, System.out);
     }
 }

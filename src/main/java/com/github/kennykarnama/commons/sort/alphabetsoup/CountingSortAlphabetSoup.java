@@ -16,16 +16,18 @@ package com.github.kennykarnama.commons.sort.alphabetsoup;
  */
 public class CountingSortAlphabetSoup extends AlphabetSoup {
 
+    public CountingSortAlphabetSoup(String inputString) throws Exception {
+        super(inputString);
+    }
+
     @Override
-    public String Process(String s) throws Exception {
+    public String Process() {
         
-        this.Validate(s);
-        
-        final int len = s.length();
+        final int len = this.inputStr.length();
         int[] counts = new int[123];
 
         for (int i = 0; i < len; i++) {
-            char c = s.charAt(i);
+            char c = this.inputStr.charAt(i);
             counts[(int)c]++;
         }
 

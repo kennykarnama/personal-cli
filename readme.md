@@ -20,6 +20,26 @@ personal-cli --help
 
 Sort strings alphabetically
 
+I provide two implementations
+
+- Bubble sort 
+- Counting sort
+
+The way I organize this is by using abstract class and subclass that implements the function
+
+```
+AbstractClass AlphabetSoup
+
+- inputStr: String
+
+- validate() throws Exception // concrete implementation
+
++ process() String
+```
+
+Each of different implementation will override `process` methods
+
+
 Command
 
 ```
